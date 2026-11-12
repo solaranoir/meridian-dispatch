@@ -1,0 +1,10 @@
+[Unit]
+Description=Run The Meridian Dispatch at 06:00 Pacific daily
+
+[Timer]
+OnCalendar=*-*-* 06:00:00 America/Los_Angeles
+Persistent=true
+Unit=meridian-dispatch.service
+
+[Install]
+WantedBy=timers.target

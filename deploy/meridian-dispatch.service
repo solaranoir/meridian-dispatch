@@ -1,0 +1,17 @@
+[Unit]
+Description=The Meridian Dispatch daily news digest
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=meridian
+Group=meridian
+WorkingDirectory=/opt/meridian-dispatch
+ExecStart=/opt/meridian-dispatch/.venv/bin/python -m meridian_dispatch.main --env /etc/meridian-dispatch.env --data-dir /var/lib/meridian-dispatch --send-email --upload-nextcloud
+StateDirectory=meridian-dispatch
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/meridian-dispatch

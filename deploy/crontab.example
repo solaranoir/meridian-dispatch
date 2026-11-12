@@ -1,0 +1,3 @@
+# For cron implementations supporting CRON_TZ. Prefer systemd timer on Linux.
+CRON_TZ=America/Los_Angeles
+0 6 * * * cd /opt/meridian-dispatch && /opt/meridian-dispatch/.venv/bin/python -m meridian_dispatch.main --env /etc/meridian-dispatch.env --data-dir /var/lib/meridian-dispatch --send-email --upload-nextcloud >> /var/log/meridian-dispatch.log 2>&1
